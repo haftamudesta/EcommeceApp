@@ -1,19 +1,10 @@
-import HomePage from "@/pages/home/ui/HomePage";
-import LoginPage from "@/pages/login/ui/LoginPage";
+import HomePage from "@/pages/home";
+import LoginPage from "@/pages/login";
 import PageNotFound from "@/pages/notfoud/ui/PageNotFound";
 import type { RouteProps } from 'react-router';
+import {routePaths,AppRoutes} from "@/shared/config"
 
-export const AppRoutes = {
-    HOME: "home",
-    LOGIN: "login"
-} as const;
 
- type AppRoutes = (typeof AppRoutes)[keyof typeof AppRoutes];
-
-export const routePaths: Record<AppRoutes, string> = {
-    [AppRoutes.HOME]: "/",
-    [AppRoutes.LOGIN]: "/login"
-};
 
 export const routeConfig: RouteProps[] = [
     {

@@ -1,2 +1,2 @@
-import HomePage from "./ui/HomePage"
-export default {HomePage}
+import {HomePageAsync as HomePage} from "./ui/HomePage.async"
+export default HomePage
