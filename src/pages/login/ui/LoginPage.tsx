@@ -1,8 +1,14 @@
-import React from 'react'
+import { useTranslation } from "react-i18next"
+import { Link } from "react-router"
+
 
 const LogIn = () => {
+  const {t}=useTranslation('login')
   return (
-    <div>LogIn</div>
+    <>
+    {t('login')}
+    <Link to={'/'}>Home</Link>
+    </>
   )
 }
 
