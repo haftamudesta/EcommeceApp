@@ -1,0 +1,11 @@
+@use "reset.scss";
+@use "global.scss";
+@use "themes/blue.scss";
+@use "themes/pink.scss";
+
+body{
+        font: var(--font-m);
+        min-height: 100vh;
+        background: var(--black);
+        color: var(--white);
+}
