@@ -14,7 +14,7 @@ interface buttonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
   disabled?:boolean
 }
 export const Button = (props:buttonProps) => {
-  const {children,className,size="sm",theme="primary",form="pill",disabled=false,...rest}=props
+  const {children,className,size="md",theme="primary",form="pill",disabled=false,...rest}=props
   return (
     <button 
     {...rest} 
