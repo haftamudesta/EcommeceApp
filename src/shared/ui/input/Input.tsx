@@ -1,5 +1,5 @@
 import { cn } from "@/shared/lib";
-import { useState, type InputHTMLAttributes, type ReactNode } from "react";
+import { useState, type ChangeEvent, type InputHTMLAttributes, type ReactNode } from "react";
 import styles from "./Input.module.scss";
 import { Button } from "../button/Button";
 import Hide from "@/shared/assets/icons/Hide.svg?react";
@@ -31,8 +31,9 @@ export const Input = (props: InputProps) => {
         onChange,
         ...rest
     } = props;
- const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+ const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
+        console.log(e.target.value)
     };
 
     const toggleShowPassword = () => {
