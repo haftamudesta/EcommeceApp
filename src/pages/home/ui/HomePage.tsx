@@ -2,7 +2,7 @@ import { Link } from "react-router"
 import styles from "./HomePage.module.scss"
 import { useTheme } from "@/shared/config"
 import { useTranslation } from "react-i18next";
-import {Button,Input} from "@/shared/ui";
+import {AppIcon, Button,Input} from "@/shared/ui";
 import Search from "@/shared/assets/icons/Search.svg?react"
 import { useState } from "react";
 
@@ -21,8 +21,8 @@ const HomePage = () => {
         rounded
         value={searchValue}
         onChange={setSearchValue}
-        placeholder={t("Search")}
-        Icon={<Search aria-hidden="true" />}
+        placeholder={t("Search...")}
+        Icon={<AppIcon Icon={Search} theme="background"/>}
         aria-label={t("search.label")}
       />
     <Button  onClick={toggleTheme}>theme</Button>
