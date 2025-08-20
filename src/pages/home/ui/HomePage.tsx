@@ -1,16 +1,24 @@
 import { Link } from "react-router";
-import styles from "./HomePage.module.scss";
-import {Spinner} from "@/shared/ui";
+import {Button, Spinner} from "@/shared/ui";
 
 import { Header } from "@/widgets/header";
 import { Footer } from "@/widgets/footer";
+import { useEffect, useState } from "react";
+import styles from "./HomePage.module.scss";
+
+
 const HomePage = () => {
+  const [error,setError]=useState<boolean>(false);
+  useEffect(()=>{
+    if(error) throw new Error()
+  },[error])
   return (
     <div className={styles.pageWrapper}>
        <Header />
       <main className={styles.content}>
         <Spinner />
         <Link to={'/login'}>Log In</Link>
+        <Button onClick={()=>setError(true)}>Click</Button>
       </main>
       <Footer />
     </div>
