@@ -1,34 +1,27 @@
-import { Link } from "react-router"
-import styles from "./HomePage.module.scss"
-import { useTheme } from "@/shared/config"
-import { useTranslation } from "react-i18next";
-import {AppIcon, Button,Input} from "@/shared/ui";
-import Search from "@/shared/assets/icons/Search.svg?react"
-import { useState } from "react";
+import { Link } from "react-router";
+import {Button, Spinner} from "@/shared/ui";
+
+import { Header } from "@/widgets/header";
+import { Footer } from "@/widgets/footer";
+import { useEffect, useState } from "react";
+import styles from "./HomePage.module.scss";
+
 
 const HomePage = () => {
-  const {toggleTheme}=useTheme();
-  const {t,i18n}=useTranslation()
-  const [searchValue, setSearchValue] = useState("");
-  const changeLanguage=()=>{
-    i18n.changeLanguage(i18n.language==="en"?"de":"en")
-  }
+  const [error,setError]=useState<boolean>(false);
+  useEffect(()=>{
+    if(error) throw new Error()
+  },[error])
   return (
-    <>
-    <h1 className={styles.title}>{t("hello")}</h1>
-    <Input
-        type="text"
-        rounded
-        value={searchValue}
-        onChange={setSearchValue}
-        placeholder={t("Search...")}
-        Icon={<AppIcon Icon={Search} theme="background"/>}
-        aria-label={t("search.label")}
-      />
-    <Button  onClick={toggleTheme}>theme</Button>
-    <Button theme='outline' onClick={changeLanguage}>{i18n.language}</Button>
-    <Link to={'/login'}>Log In</Link>
-    </>
+    <div className={styles.pageWrapper}>
+       <Header />
+      <main className={styles.content}>
+        <Spinner />
+        <Link to={'/login'}>Log In</Link>
+        <Button onClick={()=>setError(true)}>Click</Button>
+      </main>
+      <Footer />
+    </div>
   )
 }
 export default HomePage

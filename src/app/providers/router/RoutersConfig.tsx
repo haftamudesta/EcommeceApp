@@ -1,6 +1,6 @@
 import HomePage from "@/pages/home";
 import LoginPage from "@/pages/login";
-import PageNotFound from "@/pages/notfoud/ui/PageNotFound";
+import { PageNotFound } from "@/pages/notFound";
 import type { RouteProps } from 'react-router';
 import {routePaths,AppRoutes} from "@/shared/config"
 
@@ -16,7 +16,7 @@ export const routeConfig: RouteProps[] = [
         element: <LoginPage />,
     },
     {
-    path: "*",
+    path: routePaths[AppRoutes.NOT_FOUND],
     element: <PageNotFound />,
   }
 ];
