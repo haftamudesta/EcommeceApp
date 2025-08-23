@@ -24,7 +24,9 @@ export default tseslint.config([
         'error',{
           argIgnorePattern:"^_",
         }
-      ]
+        
+      ],
+      "@typescript-eslint/no-explicit-any":"off",
     }
   },
 ])
