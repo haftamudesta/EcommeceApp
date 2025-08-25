@@ -9,3 +9,5 @@ export const AuthMethods={
         PHONE:"phone"
 }
 export type AuthMethodsType=(typeof AuthMethods)[keyof typeof AuthMethods];
+
+export const LOCAL_STORAGE_USER_KEY="user"
