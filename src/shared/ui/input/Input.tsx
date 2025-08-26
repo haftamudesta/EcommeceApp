@@ -14,7 +14,8 @@ interface InputProps extends HTMLInputProps {
     rounded?: boolean;
     Icon?: ReactNode;
     onChange?: (value: string) => void;
-    type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search'; 
+    type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search';
+    error?:boolean, 
 }
 
 export const Input = (props: InputProps) => {
@@ -29,6 +30,7 @@ export const Input = (props: InputProps) => {
         type = 'text',
         Icon,
         onChange,
+        error=false,
         ...rest
     } = props;
  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -56,6 +58,7 @@ export const Input = (props: InputProps) => {
                 [styles.rounded]: rounded,
                 [styles.disabled]: disabled,
                 [styles.focus]: focus,
+                [styles.error]: error,
             }
         )}>
             {Icon && <span className={styles.icon}>{Icon}</span>}
@@ -69,6 +72,7 @@ export const Input = (props: InputProps) => {
                 type={showPassword && type === "password" ? "text" : type}
                 className={cn(styles.input, {
                     [styles.disabled]: disabled,
+                    [styles.error]: error,
                 })}
             />
             {type === 'password' && (

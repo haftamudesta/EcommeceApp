@@ -1,7 +1,17 @@
-import styles from "./Spinner.module.scss"
+import { cn } from "@/shared/lib";
+import styles from "./Spinner.module.scss";
 
-export const Spinner = () => {
+type SpinnerSize="lg" | "md" | "sm";
+type SpinnerTheme="primary" | "secondary";
+
+interface SpinnerProps{
+  size:SpinnerSize,
+  theme:SpinnerTheme,
+}
+
+export const Spinner = (props:SpinnerProps) => {
+  const {size="md",theme="primary"}=props;
   return (
-    <div className={styles.loader}></div>
+    <div className={cn(styles.loader,styles[size],styles[theme])}></div>
   )
 }
