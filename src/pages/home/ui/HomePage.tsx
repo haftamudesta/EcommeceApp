@@ -18,14 +18,6 @@ const HomePage = () => {
        <Header />
       <main className={styles.content}>
         <Spinner />
-        <Tabs defaultValue="1">
-          <Tabs.List>
-            <Tabs.Tirgger value="1">1</Tabs.Tirgger>
-            <Tabs.Tirgger value="2">2</Tabs.Tirgger>
-          </Tabs.List>
-          <Tabs.Content value="1">1</Tabs.Content>
-          <Tabs.Content value="2">2</Tabs.Content>
-        </Tabs>
         <Link to={'/login'}>Log In</Link>
         <Button onClick={()=>setError(true)}>Click</Button>
       </main>

@@ -11,7 +11,7 @@ interface TabContextType{
 interface TabsProbs{
         defaultValue:string,
         children:ReactNode,
-        onChange:()=>void
+        onChange?:()=>void
 }
 
 const TabContext=createContext<TabContextType | undefined>(undefined)
@@ -47,29 +47,33 @@ const TabList=({ children }:TabListProps)=>{
         )
 }
 
-interface TabTirggerPrps{
+interface TabTriggerProps{
         value:string,
         children:ReactNode,
 }
 
-const TabTirgger=({value,children}:TabTirggerPrps)=>{
+const TabTrigger = ({ children, value }: TabTriggerProps) => {
+  const context = useContext(TabContext);
+  if (!context) throw new Error("TabTrigger must be within Tabs");
 
-        const context=useContext(TabContext);
-        const handleClick=()=>{
-                context?.handleChangeActiveTab(value)
-        }
-        if(!context) throw new Error("Tab trigger must be within tabs")
-        const isActive=context.activeTab=value;
-        return(
-                <Button theme={isActive?"outline":"tertiary"}
-                form="rounded"
-                onClick={handleClick}
-                className={cn(styles.tirgger)}
-                >
-                        {children}
-                </Button>
-        )
-}
+  const isActive = context.activeTab === value;
+
+  const handleClick = () => {
+    context.handleChangeActiveTab(value);
+  };
+
+  return (
+    <Button
+      type="button"
+      theme={isActive ? "outline" : "tertiary"}
+      form="rounded"
+      onClick={handleClick}
+      className={cn(styles.trigger, { [styles.active]: isActive })}
+    >
+      {children}
+    </Button>
+  );
+};
 
 interface TabContentPrps{
         value:string,
@@ -82,7 +86,7 @@ const TabContent=({value,children}:TabContentPrps)=>{
         
         if(!context) throw new Error("Tab ContentPrps must be within tabs")
         const isActive=context.activeTab=value;
-        if(isActive) return null;
+        if(!isActive) return null;
         return(
                 <div className={styles.content}
                 >
@@ -93,4 +97,4 @@ const TabContent=({value,children}:TabContentPrps)=>{
 
 Tabs.List=TabList;
 Tabs.Content=TabContent;
-Tabs.Tirgger=TabTirgger;
+Tabs.Tirgger=TabTrigger;

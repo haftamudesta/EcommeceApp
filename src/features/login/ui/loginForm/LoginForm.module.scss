@@ -1,0 +1,17 @@
+.form {
+        width: 420px;
+        padding: 24px;
+        background: var(--surface-color);
+        border: 2px double var(--gray-200);
+        border-radius: 24px;
+}
+
+.label {
+        font: var(--font-s);
+        font-weight: 600;
+        margin-bottom: 8px;
+}
+
+.button {
+        margin-top: 12px;
+}
