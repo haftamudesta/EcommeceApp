@@ -8,14 +8,14 @@ const LoginForm = () => {
   return (
     <div>
         <form action="" className={styles.form}>
-                <Tabs defaultValue="1">
+                <Tabs defaultValue={AuthMethods.EMAIL}>
                         <Tabs.List>
-                                <Tabs.Tirgger value={AuthMethods.EMAIL}>
-                                        Email
-                                </Tabs.Tirgger>
-                                <Tabs.Tirgger value={AuthMethods.PHONE}>
-                                        Phone
-                                </Tabs.Tirgger>
+                                <Tabs.Trigger value={AuthMethods.EMAIL}>
+                                       With Email
+                                </Tabs.Trigger>
+                                <Tabs.Trigger value={AuthMethods.PHONE}>
+                                       With Phone
+                                </Tabs.Trigger>
                         </Tabs.List>
                         <Tabs.Content value={AuthMethods.EMAIL}>
                                 <label className={styles.label}>Email:</label>

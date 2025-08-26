@@ -85,7 +85,7 @@ const TabContent=({value,children}:TabContentPrps)=>{
         const context=useContext(TabContext);
         
         if(!context) throw new Error("Tab ContentPrps must be within tabs")
-        const isActive=context.activeTab=value;
+        const isActive=context.activeTab===value;
         if(!isActive) return null;
         return(
                 <div className={styles.content}
@@ -97,4 +97,4 @@ const TabContent=({value,children}:TabContentPrps)=>{
 
 Tabs.List=TabList;
 Tabs.Content=TabContent;
-Tabs.Tirgger=TabTrigger;
+Tabs.Trigger=TabTrigger;
