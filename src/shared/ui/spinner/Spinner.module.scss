@@ -20,6 +20,23 @@
         inset: 6px;
       }
 
+      .secondary{
+        color: var((--white));
+      }
+
+      .lg{
+        width: 50px;
+      }
+      .md {
+        width: 32px;
+        border-width: 6px;
+      }
+
+      .sm {
+        width: 20px;
+        border-width: 3px;
+      }
+
       @keyframes rotate {
         0%   {transform: rotate(0deg)}
         100%   {transform: rotate(360deg)}

@@ -5,6 +5,7 @@ import { Header } from "@/widgets/header";
 import { Footer } from "@/widgets/footer";
 import { useEffect, useState } from "react";
 import styles from "./HomePage.module.scss";
+import { Tabs } from "@/shared/ui";
 
 
 const HomePage = () => {

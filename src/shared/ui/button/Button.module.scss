@@ -39,12 +39,6 @@
                 border-color: var(--gray-200);
         }
 }
-.ghost {
-        background-color: transparent;
-        border: none;
-        padding: 0;
-        font-weight: 500;
-}
 
 .disable {
         color: var(--gray-400);
@@ -110,4 +104,15 @@
 }
 .xs,.sm,.md,.lg {
         font-weight: 600;
+}
+
+.fullWidth {
+        width: 100%;
+}
+
+.ghost {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        font-weight: 500;
 }

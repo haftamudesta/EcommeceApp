@@ -1,5 +1,5 @@
 import { cn } from "@/shared/lib";
-import { useState, type ChangeEvent, type InputHTMLAttributes, type ReactNode } from "react";
+import { useState, type ChangeEvent, type InputHTMLAttributes, type ReactNode, type Ref } from "react";
 import styles from "./Input.module.scss";
 import { Button } from "../button/Button";
 import Hide from "@/shared/assets/icons/Hide.svg?react";
@@ -7,14 +7,17 @@ import Show from "@/shared/assets/icons/Show.svg?react";
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'type'>;
 
-interface InputProps extends HTMLInputProps {
+export interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string;
     disabled?: boolean;
     rounded?: boolean;
     Icon?: ReactNode;
     onChange?: (value: string) => void;
-    type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search'; 
+    type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search';
+    error?:boolean, 
+    label:string,
+    ref?:Ref<HTMLInputElement>
 }
 
 export const Input = (props: InputProps) => {
@@ -28,7 +31,10 @@ export const Input = (props: InputProps) => {
         rounded = false,
         type = 'text',
         Icon,
+        ref,
         onChange,
+        error=false,
+        label,
         ...rest
     } = props;
  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -49,6 +55,10 @@ export const Input = (props: InputProps) => {
     };
 
     return (
+        <div>
+        {label && (
+            <label className={cn(styles.label,{[styles.error]:error})}>{label}</label>
+        )}
         <div className={cn(
             styles.inputContainer,
             className,
@@ -56,6 +66,7 @@ export const Input = (props: InputProps) => {
                 [styles.rounded]: rounded,
                 [styles.disabled]: disabled,
                 [styles.focus]: focus,
+                [styles.error]: error,
             }
         )}>
             {Icon && <span className={styles.icon}>{Icon}</span>}
@@ -69,6 +80,7 @@ export const Input = (props: InputProps) => {
                 type={showPassword && type === "password" ? "text" : type}
                 className={cn(styles.input, {
                     [styles.disabled]: disabled,
+                    [styles.error]: error,
                 })}
             />
             {type === 'password' && (
@@ -82,6 +94,7 @@ export const Input = (props: InputProps) => {
                     {showPassword ? <Hide /> : <Show />}
                 </Button>
             )}
+        </div>
         </div>
     );
 };

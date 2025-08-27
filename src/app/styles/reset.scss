@@ -7,3 +7,22 @@
 input,button,textarea,select {
         font: inherit;
 }
+
+.react-international-phone-input-container .react-international-phone-input{
+        height: auto;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background-color: inherit;
+        font: inherit;
+        color: var(--gray-800);
+}
+.react-international-phone-country-selector-button{
+        height: auto;
+        border: none;
+        border-right: 4px solid skyblue;
+        background: inherit;
+        &:hover{
+                background: inherit;
+        }
+}

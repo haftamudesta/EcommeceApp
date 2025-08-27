@@ -20,10 +20,11 @@ export default tseslint.config([
       globals: globals.browser,
     },
     rules:{
-      "@typscript-eslint/no-unused-vars":[
+      "@typescript-eslint/no-unused-vars":[
         'error',{
           argIgnorePattern:"^_",
         }
+
       ],
       "@typescript-eslint/no-explicit-any":"off",
     }

@@ -8,7 +8,7 @@ export const PageLoader = () => {
   return (
     <div className={styles.wrapper}>
         <h3 className={styles.title}>{t("pageLoader.loading")}</h3>
-        <Spinner />
+        <Spinner size="lg" theme="secondary" />
     </div>
   )
 }
