@@ -46,3 +46,12 @@
                 background-color: var(--red-50);
         }
 }
+
+.label {
+        font: var(--font-s);
+        font-weight: 600;
+        margin-bottom: 8px;
+        &.error {
+                color: var(--red-50);
+        }
+}

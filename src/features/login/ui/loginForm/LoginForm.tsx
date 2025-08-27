@@ -1,7 +1,8 @@
 import { Link, useNavigate } from 'react-router';
+import 'react-international-phone/style.css';
 
 import styles from "./LoginForm.module.scss";
-import { AppIcon, Button, Input, Tabs } from '@/shared/ui';
+import { AppIcon, Button, Input, PhoneInput, Tabs } from '@/shared/ui';
 import { AuthMethods, routePaths } from '@/shared/config';
 import type { FormEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '@/shared/lib';
@@ -16,7 +17,6 @@ import ArrowRight from "@/shared/assets/icons/ArrowRight.svg?react";
 import { Login } from '../../model/services/Login';
 import { selectLoginIsLoading } from '../../model/selectors/selectLoginIsLoading/SelectLogInIsLoading';
 import { selectLoginError } from '../../model/selectors/selectLoginError/SelectLoginError';
-
 
 const LoginForm = () => {
         const dispatch=useAppDispatch()
@@ -63,27 +63,35 @@ const LoginForm = () => {
                                 </Tabs.Trigger>
                         </Tabs.List>
                         <Tabs.Content value={AuthMethods.EMAIL}>
-                                <label className={styles.label}>Email:</label>
                                 <Input 
                                 error={!!error}
+                                label='Email:'
                                 type='email' value={email} className={styles.input} placeholder='Enter Your Email'
                                 onChange={handleChangeEmail}
                                  />
                         </Tabs.Content>
                         <Tabs.Content value={AuthMethods.PHONE}>
-                                <label className={styles.label}>Phone:</label>
-                                <Input error={!!error} type='number' value={phone} className={styles.input} placeholder='Enter Your Phone' 
+                                
+                                <PhoneInput
+                                error={!!error}
+                                 value={phone} 
+                                label='Phone:'
+                                className={styles.input} placeholder='Enter Your Phone' 
                                 onChange={handleChangePhone}
                                 />
                         </Tabs.Content>
                 </Tabs>
                 <Input 
                 error={!!error}
+                label='Password:'
                 value={password} 
                 type='password'className={styles.input} 
                 placeholder='Enter Your Password'
                 onChange={handleChangePassword}
                  />
+                 {error && (
+                        <div className={styles.error}>{error}</div>
+                 )}
                 <div className={styles.button_home}>
                         <Button isLoading={isLoading} fullWidth type='submit' className={styles.button} form='rounded' size='md'>Login<AppIcon Icon={ArrowRight} /></Button>
                         <Link to={'/'} className={styles.home}>Back to Home</Link>

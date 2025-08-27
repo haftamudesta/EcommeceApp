@@ -18,6 +18,6 @@ export const Login=createAsyncThunk<void,loginArgs>("features/login",async(authD
                thunkApi.dispatch(UserActions.setUserData(user));
                //eslint-disable-next-line
         } catch (error) {
-              thunkApi.rejectWithValue("Log in error")
+             return thunkApi.rejectWithValue("Log in error")
         }
 })
