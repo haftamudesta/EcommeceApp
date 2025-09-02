@@ -41,7 +41,7 @@ const LoginForm = () => {
         const onSubmit=async (e:FormEvent<HTMLFormElement>)=>{
                e.preventDefault(); 
                const result=await dispatch(Login({email,phone,password}))
-               if(Login.fulfilled.match(result)){
+               if(!Login.fulfilled.match(result)){
                 navigate(routePaths.home)
                }
         }
