@@ -1,4 +1,5 @@
 import {type AuthMethodsType } from "@/shared/config";
+import type { type } from "os";
 
 export interface RegistrationFormSchema{
         email?:string,
@@ -16,4 +17,4 @@ export const FormSteps={
         VERFICATION:3,
 }as const;
 
-export FormStepsType=(typeof FormSteps)[keyof typeof FormSteps]
+export type FormStepsType=(typeof FormSteps)[keyof typeof FormSteps]
