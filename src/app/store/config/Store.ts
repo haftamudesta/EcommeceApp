@@ -1,4 +1,4 @@
-import { configureStore,type ThunkDispatch,type UnknownAction} from '@reduxjs/toolkit';
+import { configureStore, type ThunkDispatch, type UnknownAction } from '@reduxjs/toolkit';
 
 import type { StateSchema } from './StateSchema';
 import { UserReducer } from '@/entities/users';
@@ -7,6 +7,7 @@ import {type ReducersMapObject } from '@reduxjs/toolkit';
 import {type ReduxStoreWithManager } from './StateSchema';
 
 import { createReducerManager } from './ReducerManager';
+
 
 
 
@@ -35,3 +36,4 @@ export const createStore = (
   };
 
 export type AppDispatch = ThunkDispatch<StateSchema,unknown,UnknownAction>
+

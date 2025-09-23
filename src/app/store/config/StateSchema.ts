@@ -10,6 +10,7 @@ import type { LoginFormSchema } from "@/features/login";
 
 export interface StateSchema{
       user:UserSchema,
+
       loginForm?: LoginFormSchema
 }
 export type StateSchemaKey = keyof StateSchema;
@@ -27,4 +28,5 @@ export interface ReducerManager {
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
   reducerManager: ReducerManager;
+
 }
