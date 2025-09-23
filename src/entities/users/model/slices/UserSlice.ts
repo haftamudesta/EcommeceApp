@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit';
 import {type User, type UserSchema } from '../types/UserSchema';
+import { LOCAL_STORAGE_USER_KEY } from '@/shared/config';
 
 
 const initialState: UserSchema = {
@@ -16,7 +17,17 @@ export const userSlice = createSlice({
         },
         clearUserData:(state)=>{
                 state.userData=undefined
+        },
+        initUserData: (state) => {
+      const user = localStorage.getItem(LOCAL_STORAGE_USER_KEY);
+      if (user) {
+        try {
+          state.userData = JSON.parse(user);
+        } catch (error) {
+          console.log(error);
         }
+      }
+    },
   },
 })
 
