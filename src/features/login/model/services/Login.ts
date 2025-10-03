@@ -2,6 +2,8 @@ import { LOCAL_STORAGE_USER_KEY } from "@/shared/config";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { UserActions } from "@/entities/users";
+import { extractErrorMessage } from "@/shared/api";
+import { applyUserSession } from "@/entities/users";
 
 type loginArgs={
         email?:string,
@@ -16,8 +18,9 @@ export const Login=createAsyncThunk<void,loginArgs>("features/login",async(authD
                const user=res.data;
                localStorage.setItem(LOCAL_STORAGE_USER_KEY,JSON.stringify(user));
                thunkApi.dispatch(UserActions.setUserData(user));
+               applyUserSession(user,thunkApi.dispatch)
                //eslint-disable-next-line
         } catch (error) {
-             return thunkApi.rejectWithValue("Log in error")
+             return thunkApi.rejectWithValue(extractErrorMessage(error))
         }
 })
