@@ -5,14 +5,17 @@ import type {
   UnknownAction,
 } from "@reduxjs/toolkit";
 
-import type { UserSchema } from "@/entities/users";
 import type { LoginFormSchema } from "@/features/login";
+import type { RegistrationFormSchema } from "@/features/regiseter";
 
-export interface StateSchema{
-      user:UserSchema,
+import type { UserSchema } from "@/entities/users";
 
-      loginForm?: LoginFormSchema
+export interface StateSchema {
+  user: UserSchema;
+  loginForm?: LoginFormSchema;
+  regiserForm?: RegistrationFormSchema;
 }
+
 export type StateSchemaKey = keyof StateSchema;
 
 export interface ReducerManager {
@@ -28,5 +31,4 @@ export interface ReducerManager {
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
   reducerManager: ReducerManager;
-
 }

@@ -5,7 +5,7 @@ import { Button } from "../button/Button";
 import Hide from "@/shared/assets/icons/Hide.svg?react";
 import Show from "@/shared/assets/icons/Show.svg?react";
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'type'>;
+export type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'type'>;
 
 export interface InputProps extends HTMLInputProps {
     className?: string;
@@ -16,7 +16,7 @@ export interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
     type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search';
     error?:boolean, 
-    label:string,
+    label?:string,
     ref?:Ref<HTMLInputElement>
 }
 

@@ -7,6 +7,6 @@ import {  } from "./config/StateSchema";
 
 export {createStore}
 
-export type {StateSchema,AppDispatch}
+// export type {StateSchema,AppDispatch}
 
 
