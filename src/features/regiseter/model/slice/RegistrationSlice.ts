@@ -5,8 +5,6 @@ import { AuthMethods,type AuthMethodsType } from '@/shared/config';
 import { Register } from '../services/Register';
 
 
-
-
 const initialState: RegistrationFormSchema = {
   email:"",
   phone:"",

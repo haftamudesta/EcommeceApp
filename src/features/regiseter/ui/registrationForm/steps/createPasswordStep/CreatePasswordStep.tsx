@@ -68,7 +68,7 @@ const CreatePasswordStep = () => {
           return (
             <div key={requirement.key} className={styles.requirement}>
               <AppIcon
-                size={16}
+                size={6}
                 className={cn(styles.requirementIcon, {
                   [styles.met]: isMet,
                 })}

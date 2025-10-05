@@ -6,13 +6,11 @@ import CreatePasswordStep from "./steps/createPasswordStep/CreatePasswordStep";
 import VerficationStep from "./steps/verificationStep/VerficationStep";
 const RegistrationForm = () => {
    const step = useAppSelector(selectRegisterStep);
-   console.log("step",step)
-   console.log("form step",FormSteps.CREDENTIALS)
   return (
     <main>
-        <CredentialStep/>
-        <CreatePasswordStep/>
-        <VerficationStep />
+      {step===FormSteps.CREDENTIALS &&  <CredentialStep/>}
+      {step===FormSteps.PASSWORD && <CreatePasswordStep/>}
+      {step===FormSteps.VERFICATION && <VerficationStep />}
     </main>
   )
 }

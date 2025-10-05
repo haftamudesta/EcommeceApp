@@ -13,7 +13,7 @@ import type { UserSchema } from "@/entities/users";
 export interface StateSchema {
   user: UserSchema;
   loginForm?: LoginFormSchema;
-  regiserForm?: RegistrationFormSchema;
+  registerForm?: RegistrationFormSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
