@@ -67,7 +67,6 @@ const RegisterPage = () => {
             </>
           )}
       </DynamicModuleLoader>
-      
     </div>
     </div>
   )
