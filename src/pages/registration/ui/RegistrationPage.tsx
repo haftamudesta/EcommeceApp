@@ -12,6 +12,7 @@ import { registerActions,registerReducer,
   import { AppIcon, Button } from "@/shared/ui";
   import ArrowLeft from "@/shared/assets/icons/ArrowLeft.svg?react";
   import { routePaths } from "@/shared/config";
+  import { AuthByGoogleButton } from "@/features/authByGoogle";
 
 const STEP_TITLES: Record<FormStepsType, string> = {
   [FormSteps.CREDENTIALS]: "register.credentials.title",
@@ -56,7 +57,7 @@ const RegisterPage = () => {
                 <div className={styles.line} />
               </div>
               <div className={styles.authServices}>
-                <Button size="md" fullWidth>Auth by Google</Button>
+              <AuthByGoogleButton />
               </div>
               <span className={styles.footer}>
                 {t("register.alreadyHaveAccount")}{" "}
