@@ -9,7 +9,6 @@ import {
   selectAuthByGoogleError,
   selectAuthByGoogleIsLoading,
 } from "@/features/authByGoogle";
-// import { exchangeCode } from "@/features/authByGoogle/model/services/exchangeCode/exchangeCode";
 import { exchangeCode } from "@/features/authByGoogle/model/services/exchangeCode";
 
 import { selectUserData } from "@/entities/users";
