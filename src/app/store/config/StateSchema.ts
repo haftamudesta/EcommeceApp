@@ -7,6 +7,7 @@ import type {
 
 import type { LoginFormSchema } from "@/features/login";
 import type { RegistrationFormSchema } from "@/features/regiseter";
+import type { AuthByGoogleSchema } from "@/features/authByGoogle";
 
 import type { UserSchema } from "@/entities/users";
 
@@ -14,6 +15,7 @@ export interface StateSchema {
   user: UserSchema;
   loginForm?: LoginFormSchema;
   registerForm?: RegistrationFormSchema;
+  authByGoogle: AuthByGoogleSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

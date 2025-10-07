@@ -2,6 +2,7 @@ export const AppRoutes = {
     HOME: "home",
     LOGIN: "login",
     REGISTER:"register",
+    AUTH_CALLBACK: "auth_callback",
     NOT_FOUND:"not_found"
 } as const;
 
@@ -11,5 +12,6 @@ export const routePaths: Record<AppRoutes, string> = {
     [AppRoutes.HOME]: "/",
     [AppRoutes.LOGIN]: "/login",
     [AppRoutes.REGISTER]: "/register",
+    [AppRoutes.AUTH_CALLBACK]: "/oauth",
     [AppRoutes.NOT_FOUND]:"*"
 };
