@@ -7,7 +7,8 @@ import {type ReducersMapObject } from '@reduxjs/toolkit';
 import {type ReduxStoreWithManager } from './StateSchema';
 
 import { createReducerManager } from './ReducerManager';
-
+import { authByGoogleReducer } from "@/features/authByGoogle";
+import { baseAPI } from "@/shared/api";
 
 
 
@@ -17,16 +18,18 @@ export const createStore = (
 ): ReduxStoreWithManager => {
   const rootReducer: ReducersMapObject<StateSchema> = {
     user: UserReducer,
+    authByGoogle: authByGoogleReducer,
+    [baseAPI.reducerPath]: baseAPI.reducer,
     ...(asyncReducers as Partial<ReducersMapObject<StateSchema>>),
   }
    const reducerManager = createReducerManager(rootReducer);
 
-  const store = configureStore<StateSchema>({
+  const store = configureStore({
     preloadedState: initialState,
     reducer: (state, action) => {
       return reducerManager.reduce(state ?? ({} as StateSchema), action);
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(baseAPI.middleware),
     devTools: true,
   }) as ReduxStoreWithManager;
 

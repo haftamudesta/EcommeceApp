@@ -10,10 +10,12 @@ import type { RegistrationFormSchema } from "@/features/regiseter";
 import type { AuthByGoogleSchema } from "@/features/authByGoogle";
 
 import type { UserSchema } from "@/entities/users";
+import type { baseAPI } from "@/shared/api";
 
 export interface StateSchema {
   user: UserSchema;
   loginForm?: LoginFormSchema;
+  [baseAPI.reducerPath]: ReturnType<typeof baseAPI.reducer>;
   registerForm?: RegistrationFormSchema;
   authByGoogle: AuthByGoogleSchema;
 }
